@@ -1,12 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Sweet Daily Gallery</title>
-  <script>
-    sessionStorage.redirect = location.pathname + location.search;
-    location.replace('/sweet-daily/');
-  </script>
-</head>
-<body></body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/sweet-daily/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>?? 有你真好 — 我们的甜蜜日常</title>
+    <script type="module" crossorigin src="/sweet-daily/assets/index-BHcEHisa.js"></script>
+    <link rel="stylesheet" crossorigin href="/sweet-daily/assets/index-BdRZVidW.css">
+      <script>
+      (function() {
+        var redirect = sessionStorage.getItem('redirect');
+        if (redirect) {
+          sessionStorage.removeItem('redirect');
+          var path = redirect.replace(location.origin, '').replace('/sweet-daily', '');
+          if (path && path !== '/') {
+            history.replaceState(null, '', path);
+          }
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
